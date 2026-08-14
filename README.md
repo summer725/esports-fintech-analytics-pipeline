@@ -17,10 +17,10 @@ Every phase of this project is built to answer a real business question a founde
 |---|---|
 | Ingestion | Python, Stripe API (test mode) |
 | Data simulation | Faker, NumPy |
-| Transformation | dbt, Snowflake |
+| Transformation | dbt, Databricks (Lakehouse) |
 | Analysis | SQL |
 | Dashboarding | Power BI |
-| Modeling | scikit-learn |
+| Modeling | scikit-learn, MLflow (Databricks) |
 | Orchestration | Airflow |
 | Deployment | Docker, FastAPI |
 | Experimentation | GrowthBook, scipy |
@@ -31,9 +31,9 @@ Every phase of this project is built to answer a real business question a founde
 This repo is built incrementally — each tagged release (`v1`-`v7`) adds one new capability on top of the last, so the commit history itself shows the build process:
 
 - **v1** — Python + Git scaffolding, Stripe API ingestion (customers, subscriptions, invoices)
-- **v2** — dbt models on Snowflake (staging -> marts: MRR, cohort retention, feature usage)
+- **v2** — dbt models on Databricks (staging -> marts: MRR, cohort retention, feature usage)
 - **v3** — SQL optimization + Power BI churn/retention dashboard
-- **v4** — scikit-learn churn prediction model, with dollar-impact estimate on retained revenue
+- **v4** — scikit-learn churn prediction model (tracked via MLflow on Databricks), with dollar-impact estimate on retained revenue
 - **v5** — Airflow DAG orchestrating the full pipeline on a schedule
 - **v6** — Dockerized model serving via a FastAPI endpoint
 - **v7** — A/B testing: simulated pricing/onboarding experiments with proper power analysis and sample-size calculations
